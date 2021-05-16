@@ -1,4 +1,7 @@
 class Node:
-    def __init__(self, val, n=None):
+    def __init__(self, val, next=None):
         self.val = val
-        self.next = n
+        self.next = next
+
+    def __repr__(self):
+        return self.val

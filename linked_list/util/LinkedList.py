@@ -6,6 +6,87 @@ class LinkedList:
         self.head = head
         self.size = 0
 
+    def __repr__(self):
+        node = self.head
+        nodes = []
+        while node is not None:
+            nodes.append(node.val)
+            node = node.next
+        nodes.append("None")
+        return " -> ".join(nodes)
+
+    def __iter__(self):
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
+
+    def getSize(self):
+        return self.size
+
+    def add(self, d):
+        new_node = Node(d, self.root)
+        self.root = new_node
+        self.size += 1
+
+    def add_node(self, n):
+        n.setNext(self.root)
+        self.root = n
+        self.size += 1
+
+    def remove(self, d):
+        node = self.root
+        prev_node = None
+
+        while node is not None:
+            if node.getData() == d:
+                if prev_node is not None:
+                    prev_node.setNext(node.getNext())
+                else:
+                    self.root = node.getNext()
+                self.size -= 1
+                return True  # data removed
+            else:
+                prev_node = node
+                node = node.getNext()
+        return False  # data not found
+
+    def find(self, d):
+        node = self.root
+        while node is not None:
+            if node.getData() == d:
+                return d
+            elif node.getNext() is None:
+                return False
+            else:
+                node = node.getNext()
+
+    def printList(self):
+        if self.root is None:
+            return
+        node = self.root
+        print(node.toString(), end=" ")
+        while node.hasNext():
+            node = node.getNext()
+            print(node.toString(), end=" ")
+
+        print()
+
+    def sort(self):
+        if self.size > 1:
+            list = []
+            current = self.root
+            list.append(self.root)
+            while current.hasNext():
+                current = current.getNext()
+                list.append(current)
+            list = sorted(list, key=lambda node: node.getData(), reverse=True)
+            newll = LinkedList()
+            for node in list:
+                newll.add_node(node)
+            return newll
+        return self
+
     def get(self, index: int) -> int:
         index_count = 0
         current_node = self.head
@@ -113,8 +194,6 @@ class LinkedList:
             current = current.next
             index += 1
 
-        # self.get_list(odd.head)
-        # self.get_list(even.head)
         even.addNodeAtTail(odd)
         self.get_list(even.head)
         return even
@@ -129,3 +208,13 @@ class LinkedList:
         else:  # if there isn't a head node does same as addAtHead
             self.head = node
         self.size += linkedlist.size
+
+
+# llist = LinkedList(["a", "b", "c", "d", "e"])
+linkedList = LinkedList()
+linkedList.addAtTail("a")
+linkedList.addAtTail("b")
+linkedList.addAtTail("c")
+# print(linkedList)
+for node in linkedList:
+    print(node)
