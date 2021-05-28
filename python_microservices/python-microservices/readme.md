@@ -1,0 +1,24 @@
+https://www.youtube.com/watch?v=0iB5IPoTDts
+
+- (0:00:00) What are Microservices?
+- (0:02:29) Project Introduction
+- (0:05:29) Django Setup
+- (0:06:31) Adding Docker Files
+- (0:12:32) Connect Django with MySQL with Docker
+- (0:19:12) Models & Serializers
+- (0:23:11) Rest APIs with ViewSets
+- (0:35:07) User Endpoint with APIView
+- (0:37:53) Flask Setup with Docker
+- (0:42:13) Connect Flask with Mysql
+- (0:44:00) Models
+- (0:47:41) Flask Migrations
+- (0:51:44) RabbitMQ
+- (0:52:15) Django Producer and Consumer
+- (0:57:54) Flask Producer and Consumer
+- (0:59:25) Queue Service
+- (1:04:18) Data Consistency
+- (1:14:36) Internal Http Requests
+- (1:18:06) Finishing the python apps
+- (1:25:51) React Setup
+- (1:42:04) Products CRUD
+- (2:08:44) Completing the Main App
